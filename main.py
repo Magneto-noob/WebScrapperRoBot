@@ -51,8 +51,8 @@ async def scrapping(bot, message):
         soup.data = soup.prettify()  # parsing HTML
         file_write.write(f"{soup.data}")  # writing data to txt
         file_write.close()
-        await message.reply_document(f"Link-No-{message.message_id}.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
-        os.remove(f"Link-No-{message.message_id}.txt")
+        await message.reply_document(f"Web-Srapper-Robot.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
+        os.remove(f"Web-Srapper-Robot.txt")
         await txt.delete()
     except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)

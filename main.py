@@ -62,9 +62,10 @@ async def scrapping(bot, message):
     try:
         txt = await message.reply_text(f"Getting all Links from {url}", disable_web_page_preview=True, quote=True)
         file_write = open(f'AllLinks-{message.chat.username}.txt', 'a+')
-        for link in soup.find_all('a'):  # getting all <a> tags in Html
-            links = link.get('href')  # Extracting Href value of <a>
-            file_write.write(f"{links}\n\n")  # writing links to txt file
+        for link in soup.find_all('source' , 'title'):  # getting all <a> tags in Html
+            links = link.get('src')  # Extracting Href value of <a>
+            title = data.get_text()
+            file_write.write(f"{title}{links}\n\n")  # writing links to txt file
         file_write.close()
         await message.reply_document(
             f"AllLinks-{message.chat.username}.txt",
@@ -77,11 +78,7 @@ async def scrapping(bot, message):
         await txt.delete()
 
     try:
-        txt = await message.reply_text(
-            f"Getting all Paragraph from {url} ...",
-            disable_web_page_preview=True,
-            quote=True
-        )
+        txt = await message.reply_text(f"Getting all Paragraph from {url} ...",disable_web_page_preview=True, quote=True)
         file_write = open(f'AllParagraph-{message.chat.username}.txt', 'a+')
         paragraph = ""
         for para in soup.find_all('p'):  # Extracting all <p> tags

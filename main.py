@@ -59,47 +59,6 @@ async def scrapping(bot, message):
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
         await txt.delete()
         return
-    try:
-        txt = await message.reply_text(f"Getting all Links from {url}", disable_web_page_preview=True, quote=True)
-        file_write = open(f'AllLinks-{message.chat.username}.txt', 'a+')
-        for link in soup.find_all('source' , 'title'):  # getting all <a> tags in Html
-            links = link.get('src')  # Extracting Href value of <a>
-            title = data.get_text()
-            file_write.write(f"{title}{links}\n\n")  # writing links to txt file
-        file_write.close()
-        await message.reply_document(
-            f"AllLinks-{message.chat.username}.txt",
-            caption="©@BugHunterBots"
-        )
-        os.remove(f"AllLinks-{message.chat.username}.txt")
-        await txt.delete()
-    except Exception as error:
-        await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
-        await txt.delete()
-
-    try:
-        txt = await message.reply_text(f"Getting all Paragraph from {url} ...",disable_web_page_preview=True, quote=True)
-        file_write = open(f'AllParagraph-{message.chat.username}.txt', 'a+')
-        paragraph = ""
-        for para in soup.find_all('p'):  # Extracting all <p> tags
-            paragraph = para.get_text()  # Getting Text from Paragraphs
-            file_write.write(f"{paragraph}\n\n")  # writing to a file
-        file_write.close()
-        
-        await txt.delete()
-        await message.reply_document(
-            f"AllParagraph-{message.chat.username}.txt",
-            caption="©@BugHunterBots",
-            quote=True
-        )
-        os.remove(f"AllParagraph-{message.chat.username}.txt")
-    except Exception as error:
-        await message.reply_text(text=f"No Paragraphs Found!!", disable_web_page_preview=True, quote=True)
-        await txt.delete()
-        return
-
-
-
 
 # Use soup.find_all('tag_name') to Extract Specific Tag Details
 """

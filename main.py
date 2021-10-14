@@ -22,7 +22,7 @@ bughunter0 = Client(
 @bughunter0.on_message(filters.command(["start"]))
 async def start(_, message: Message):
     # Edit Your Start string here
-    text = f" 👋 Hᴇʟʟᴏ {message.from_user.first_name}, \n\n I ᴀᴍ ᴀ ᴡᴇʙ sᴄʀᴀᴘᴘᴇʀ ʙᴏᴛ.\n Sᴇɴᴅ ᴍᴇ ᴀɴʏ ʟɪɴᴋ ғᴏʀ sᴄʀᴀᴘᴘɪɴɢ. \n\n Created with ❤️"
+    text = f" 👋 Hᴇʟʟᴏ {message.from_user.first_name}, \n\n I ᴀᴍ ᴀ ᴡᴇʙ sᴄʀᴀᴘᴘᴇʀ ʙᴏᴛ.\n Sᴇɴᴅ ᴍᴇ ᴀɴʏ ʟɪɴᴋ ғᴏʀ sᴄʀᴀᴘᴘɪɴɢ. \n\n Cʀᴇᴀᴛᴇᴅ ᴡɪᴛʜ ❤️"
     await message.reply_text(text=text, disable_web_page_preview=True, quote=True)
 
 

@@ -33,18 +33,18 @@ async def scrapping(bot, message):
     try:  # Extracting Raw Data From Webpage ( Unstructured format)
         url = str(message.text)
         request = requests.get(url)
-        await txt.edit(text=f"Getting Raw Data from {url}", disable_web_page_preview=True)
+      #  await txt.edit(text=f"Getting Raw Data from {url}", disable_web_page_preview=True)
       #  file_write = open(f'RawData-{message.chat.username}.txt', 'a+')
-        file_write.write(f"{request.content}")  # Writing Raw Content to Txt file
-        file_write.close()
+      #  file_write.write(f"{request.content}")  # Writing Raw Content to Txt file
+      #  file_write.close()
       #  await message.reply_document(f"RawData-{message.chat.username}.txt", caption="©@BugHunterBots", quote=True)
       #  os.remove(f"RawData-{message.chat.username}.txt")
-        await txt.delete()
-    except Exception as error:
-        print(error)
-        await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
-        await txt.delete()
-        return
+      #  await txt.delete()
+      #      except Exception as error:
+      #  print(error)
+      #  await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
+      # await txt.delete()
+      # return
     try:
         txt = await message.reply_text(text=f"Getting HTML code from {url}", disable_web_page_preview=True, quote=True)
         soup = BeautifulSoup(request.content, 'html5lib')  # Extracting Html code in Tree Format

@@ -23,7 +23,7 @@ bughunter0 = Client(
 async def start(_, message: Message):
     # Edit Your Start string here
     text = f"Hello {message.from_user.first_name}, I am a web scrapper bot." \
-    "\nSend me any link for scrapping.\n\nJoin @BugHunterBots"
+    "\nSend me any link for scrapping."
     await message.reply_text(text=text, disable_web_page_preview=True, quote=True)
 
 

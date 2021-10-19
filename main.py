@@ -47,12 +47,12 @@ async def scrapping(bot, message):
    # try:
         txt = await message.reply_text(text=f"Getting HTML Code From {url}", disable_web_page_preview=True, quote=True)
         soup = BeautifulSoup(request.content, 'html5lib')  # Extracting Html code in Tree Format
-        file_write = open(f'Link-No-{message.message_id}.txt', 'a+')
+        file_write = open(f'Link-No-{message.message_id}.html', 'a+')
         soup.data = soup.prettify()  # parsing HTML
         file_write.write(f"{soup.data}")  # writing data to txt
         file_write.close()
-        await message.reply_document(f"Link-No-{message.message_id}.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
-        os.remove(f"Link-No-{message.message_id}.txt")
+        await message.reply_document(f"Link-No-{message.message_id}.html", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
+        os.remove(f"Link-No-{message.message_id}.html")
         await txt.delete()
     except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)

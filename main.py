@@ -45,7 +45,7 @@ async def scrapping(bot, message):
       # await txt.delete()
       # return
    # try:
-        txt = await message.reply_text(text=f"Getting HTML Code From {url}", disable_web_page_preview=True, quote=True)
+        txt = await message.reply_text(text=f"Generating HTML Code From {url}", disable_web_page_preview=True, quote=True)
         soup = BeautifulSoup(request.content, 'html5lib')  # Extracting Html code in Tree Format
         file_write = open(f'Link-No-{message.message_id}.html', 'a+')
         soup.data = soup.prettify()  # parsing HTML

@@ -8,7 +8,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from bs4 import BeautifulSoup
 import requests
-
+import time
 
 bughunter0 = Client(
     "WebScrapperBot",
@@ -32,6 +32,7 @@ async def scrapping(bot, message):
     try:  # Extracting Raw Data From Webpage ( Unstructured format)
         url = str(message.text)
         request = requests.get(url)
+          time.sleep(5)
       #  await txt.edit(text=f"Getting Raw Data from {url}", disable_web_page_preview=True)
       #  file_write = open(f'RawData-{message.chat.use.txt', 'a+')
       #  file_write.write(f"{request.content}")  # Writing Raw Content to Txt file
@@ -56,7 +57,7 @@ async def scrapping(bot, message):
         file_write.write(f"URL of the Video is : {links}")  # writing data to txt
         file_write.close()
         caption = f"`Title :- {titles}`\n\n**Video URL :- {links}**"
-        time.sleep(5)
+       # time.sleep(5)
         await message.reply_document(f"{titles}.txt", caption=caption, quote=True)
         os.remove(f"{titles}.txt")
         await txt.delete()

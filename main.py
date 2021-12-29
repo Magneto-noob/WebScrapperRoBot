@@ -32,7 +32,7 @@ async def scrapping(bot, message):
     try:  # Extracting Raw Data From Webpage ( Unstructured format)
         url = str(message.text)
         request = requests.get(url)
-          time.sleep(5)
+              time.sleep(5)
       #  await txt.edit(text=f"Getting Raw Data from {url}", disable_web_page_preview=True)
       #  file_write = open(f'RawData-{message.chat.use.txt', 'a+')
       #  file_write.write(f"{request.content}")  # Writing Raw Content to Txt file

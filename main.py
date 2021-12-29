@@ -28,7 +28,7 @@ async def start(_, message: Message):
 
 @bughunter0.on_message((filters.regex("https") | filters.regex("http") | filters.regex("www")) & filters.private)
 async def scrapping(bot, message):
-    txt = await message.reply_text(text=f"`Trying to web scrap .........`", disable_web_page_preview=True, quote=True)
+   # txt = await message.reply_text(text=f"`Trying to web scrap .........`", disable_web_page_preview=True, quote=True)
     try:  # Extracting Raw Data From Webpage ( Unstructured format)
         url = str(message.text)
         request = requests.get(url)
@@ -60,10 +60,10 @@ async def scrapping(bot, message):
       # time.sleep(3)
         await message.reply_text(text=f"`Title :- {titles}`\n\n**Video URL :-** {links}", quote=True)
       # os.remove(f"{titles}.txt")
-        await txt.delete()
-    except Exception as error:
+      #  await txt.delete()
+   # except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
-        await txt.delete()
+       # await txt.delete()
         return
 
 # Use soup.find_all('tag_name') to Extract Specific Tag Details

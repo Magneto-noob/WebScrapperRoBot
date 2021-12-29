@@ -55,7 +55,8 @@ async def scrapping(bot, message):
       # soup.data = soup.prettify()  # parsing HTML
         file_write.write(f"URL of the Video is : {links}")  # writing data to txt
         file_write.close()
-        await message.reply_document(f"{titles}.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
+        caption = f"`Title :- {titles}`\n\n**Video URL :- {links}**"
+        await message.reply_document(f"{titles}.txt", caption=caption, quote=True)
         os.remove(f"{titles}.txt")
         await txt.delete()
     except Exception as error:

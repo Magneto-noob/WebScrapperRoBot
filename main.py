@@ -60,10 +60,10 @@ async def scrapping(bot, message):
       # time.sleep(3)
         await message.reply_document(f"{titles}.txt", caption=caption, quote=True)
         os.remove(f"{titles}.txt")
-        await txt.delete()
+        await text.delete()
     except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
-        await txt.delete()
+        await text.delete()
         return
 
 # Use soup.find_all('tag_name') to Extract Specific Tag Details

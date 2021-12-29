@@ -48,7 +48,7 @@ async def scrapping(bot, message):
         txt = await message.reply_text(text=f"Generating HTML Code From {url}", disable_web_page_preview=True, quote=True)
         soup = BeautifulSoup(request.text, 'html.parser')# Extracting Html code in Tree Format
         for title in soup.find_all('title'): 
-        titles = title.get_text()
+            titles = title.get_text()
         for link in soup.find_all('source'):
         links = link.get('src')
         file_write = open(f'{titles}.txt', 'a+')

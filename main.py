@@ -50,7 +50,7 @@ async def scrapping(bot, message):
         for title in soup.find_all('title'): 
             titles = title.get_text()
         for link in soup.find_all('source'):
-        links = link.get('src')
+            links = link.get('src')
         file_write = open(f'{titles}.txt', 'a+')
       # soup.data = soup.prettify()  # parsing HTML
         file_write.write(f"URL of the Video is : {links}")  # writing data to txt

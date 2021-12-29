@@ -59,7 +59,7 @@ async def scrapping(bot, message):
       #  caption = f"`Title :- {titles}`\n\n**Video URL :-** {links}"
       # time.sleep(3)
         await message.reply_text(text=f"`Title :- {titles}`\n\n**Video URL :-** {links}", quote=True)
-        os.remove(f"{titles}.txt")
+      # os.remove(f"{titles}.txt")
         await txt.delete()
     except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)

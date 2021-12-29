@@ -62,23 +62,10 @@ async def scrapping(bot, message):
       # os.remove(f"{titles}.txt")
       #  await txt.delete()
    # except Exception as error:
-        await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
+       # await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)
        # await txt.delete()
         return
 
 # Use soup.find_all('tag_name') to Extract Specific Tag Details
-"""
-soup.title
-# <title>This is Title</title>
-
-soup.title.name
-# u'title'
-
-soup.title.string
-# u'This is a string'
-
-soup.title.parent.name
-# u'head'
-"""
 
 bughunter0.run()

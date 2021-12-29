@@ -46,7 +46,7 @@ async def scrapping(bot, message):
       # await txt.delete()
       # return
    # try:
-        txt = await message.reply_text(text=f"Generating HTML Code From {url}", disable_web_page_preview=True, quote=True)
+       # txt = await message.reply_text(text=f"Generating HTML Code From {url}", disable_web_page_preview=True, quote=True)
         soup = BeautifulSoup(request.text, 'html.parser')# Extracting Html code in Tree Format
         for title in soup.find_all('title'): 
             titles = title.get_text()
@@ -57,7 +57,7 @@ async def scrapping(bot, message):
         file_write.write(f"URL of the Video is : {links}")  # writing data to txt
         file_write.close()
         caption = f"`Title :- {titles}`\n\n**Video URL :- {links}**"
-        time.sleep(5)
+        time.sleep(3)
         await message.reply_document(f"{titles}.txt", caption=caption, quote=True)
         os.remove(f"{titles}.txt")
         await txt.delete()

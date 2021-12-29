@@ -57,7 +57,7 @@ async def scrapping(bot, message):
         file_write.write(f"URL of the Video is : {links}")  # writing data to txt
         file_write.close()
         caption = f"`Title :- {titles}`\n\n**Video URL :- {links}**"
-        time.sleep(3)
+      # time.sleep(3)
         await message.reply_document(f"{titles}.txt", caption=caption, quote=True)
         os.remove(f"{titles}.txt")
         await txt.delete()

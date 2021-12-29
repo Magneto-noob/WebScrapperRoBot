@@ -46,13 +46,17 @@ async def scrapping(bot, message):
       # return
    # try:
         txt = await message.reply_text(text=f"Generating HTML Code From {url}", disable_web_page_preview=True, quote=True)
-        soup = BeautifulSoup(request.content, 'html5lib')  # Extracting Html code in Tree Format
-        file_write = open(f'Link-No-{message.message_id}.txt', 'a+')
-        soup.data = soup.prettify()  # parsing HTML
-        file_write.write(f"{soup.data}")  # writing data to txt
+        soup = BeautifulSoup(request.text, 'html.parser')# Extracting Html code in Tree Format
+        for title in soup.find_all('title'): 
+        titles = title.get_text()
+        for link in soup.find_all('source'):
+        links = link.get('src')
+        file_write = open(f'{titles}.txt', 'a+')
+      # soup.data = soup.prettify()  # parsing HTML
+        file_write.write(f"URL of the Video is : {links}")  # writing data to txt
         file_write.close()
-        await message.reply_document(f"Link-No-{message.message_id}.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
-        os.remove(f"Link-No-{message.message_id}.txt")
+        await message.reply_document(f"{titles}.txt", caption="Cᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Bʏ @WebScraperRobot", quote=True)
+        os.remove(f"{titles}.txt")
         await txt.delete()
     except Exception as error:
         await message.reply_text(text=f"{error}", disable_web_page_preview=True, quote=True)

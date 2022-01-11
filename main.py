@@ -56,7 +56,7 @@ async def scrapping(bot, message):
       # soup.data = soup.prettify()  # parsing HTML
       # file_write.write(f"Title of Video : {titles}\n\nURL of the Video is : {links}")  # writing data to txt
       # file_write.close()
-      #  caption = f"`Title :- {titles}`\n\n**Video URL :-** {links}"
+      #  caption = f"{links} * {titles}"
       # time.sleep(3)
         await message.reply_text(text=f"`Title :- {titles}`\n\n**Video URL :-** {links}", quote=True)
       # os.remove(f"{titles}.txt")

@@ -58,7 +58,7 @@ async def scrapping(bot, message):
       # file_write.close()
       #  caption = f"{links} * {titles}"
       # time.sleep(3)
-        await message.reply_text(text=f"`Title :- {titles}`\n\n**Video URL :-** {links}", quote=True)
+        await message.reply_text(text=f"{links} * {titles}", quote=True)
       # os.remove(f"{titles}.txt")
         await txt.delete()
     except Exception as error:
